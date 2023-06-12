@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MeuMercado</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="./js/funcoes.js">	       
+	</script>
+
+    <style>
+        #fProdutos {
+            width: 480px;
+            margin-left: 30%;
+            margin-top: 3%;
+            color: red;
+        }
+
+        tr:hover {
+            cursor: pointer;
+        }
+        button{
+            background-color: red;
+            color: yellow;
+            border-color: yellow;
+        }
+    </style>
+	
+	
+</head>
+
+
+<body>
+    <nav class="navbar navbar-light bg-faded" style="background-color: green; border-color: #000;">
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">Mercado Online</h6>
+            <small class="text-white">Cadastro</small>
+        </div>
+        
+        <a href="Index.html">
+            <button>Sair</button>
+        </a>  
+    </nav>
+
+    <div id="fProdutos">
+        <form>
+            <!--Código Produto-->
+            <div class="form-group">
+                <label for="txtCodigo">Código</label>
+                <input type="text" class="form-control" id="txtCodigo" aria-describedby="emailHelp" placeholder="Código" required>
+            </div>
+
+            <!--Nome Produto-->
+            <div class="form-group">
+                <label for="txtNome">Nome</label>
+                <input type="text" class="form-control" id="txtNome" aria-describedby="emailHelp" placeholder="Nome do produto">
+            </div>
+
+            <!--Tipo Produto-->
+            <div class="form-group">
+                <label for="txtSobrenome">Tipo</label>
+                <input type="text" class="form-control" id="txtTipo" placeholder="Tipo de produto">
+            </div>
+
+            <!--Valor Produto-->
+            <div class="form-group">
+                <label for="txtProfissao">Valor</label>
+                <input type="text" class="form-control" id="txtValor" placeholder="Preço do produto">
+            </div>
+
+            <!--Estoque Produto-->
+            <div class="form-group">
+                <label for="txtProfissao">Estoque</label>
+                <input type="text" class="form-control" id="txtEstoque" placeholder="Quantidade de produto">
+            </div>
+
+            <!--Botão cadastrar-->
+            <button type="button" style="background-color: yellow; color: red;" class="btn btn-primary btn-lg"
+                onclick="cadProduto(txtCodigo.value, txtNome.value, txtTipo.value, txtValor.value, txtEstoque.value)">
+                Cadastrar
+            </button>
+
+            <!--Botão alterar-->
+            <button type="button" style="background-color: yellow; color: red;" class="btn btn-primary btn-lg"
+                onclick="alterar(txtCodigo.value, txtValor.value, txtEstoque.value)">
+                Alterar
+            </button>
+
+            <!--Botão deletar-->
+            <button type="button" style="background-color: yellow; color: red;" class="btn btn-primary btn-lg"
+                onclick="delRegistro(txtCodigo.value)">
+                Excluir
+            </button>
+
+            <!--Botão resetar-->
+            <input type="reset" style="background-color: yellow; color: red;" value="Limpar" class="btn btn-primary btn-lg">
+        </form>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="lista">
+        <table id="tbProdutos" class="table table-striped">
+            <thead>
+                <input type="text" id="ibusca" placeholder="Buscar..."> 
+                <tr>
+                    <th scope="col" style="background-color: red; color:yellow;">Código</th>
+                    <th scope="col" style="background-color: red; color:yellow;">Nome</th>
+                    <th scope="col" style="background-color: red; color:yellow;">Tipo</th>
+                    <th scope="col" style="background-color: red; color:yellow;">Valor</th>
+                    <th scope="col" style="background-color: red; color:yellow;">Estoque</th>
+                </tr>
+            </thead>
+        </table>
+    </div>	
+	<script type="text/javascript">	
+	   adicionaBuscaListener();
+       produtosInit();	
+	</script>
+</body>
+
+</html>
+
